@@ -14,13 +14,12 @@ app.use(express.json());
 // app.use(cors());
 // Option 2 : custom origins
 app.use(cors({
-    origin: 'https://bookstore-mernstack.vercel.app/',
+    origin: 'https://bookstore-mernstack.vercel.app',
     methods:['GET','POST','PUT','DELETE'],
     allowedHeaders:['Content-Type']
 }))
 
 app.get('/',(request, response)=>{
-    console.log(request);
     return response.status(234).send('Welcome to MERN stack');
 });
 
