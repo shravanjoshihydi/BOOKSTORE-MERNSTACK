@@ -4,7 +4,7 @@ import Spinner from "../components/Spinner";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSnackbar } from "notistack";
-
+import { BACKEND_URL } from "../config/config.js";
 const DeleteBook = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ const DeleteBook = () => {
   const handleDeleteBook = () => {
     setLoading(true);
     axios
-      .delete(`http://localhost:5555/books/${id}`)
+      .delete(`${BACKEND_URL}/books/${id}`)
       .then(() => {
         setLoading(false);
         enqueueSnackbar("Book Deleted Successfully", { variant: "success" });
